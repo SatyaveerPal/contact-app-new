@@ -7,3 +7,18 @@ table.table.table-striped tr td:last-child,
 table.table.table-striped tr th:last-child {
     text-align: right;
 }
+
+
+@media (max-width:767px){
+table.table.table-striped tr th:first-child {
+display: none;
+}
+table.table.table-striped tr th:first-child {
+display: none;
+}
+
+table.table.table-striped tr td {
+display: block;
+width: 100%;
+}  
+}
