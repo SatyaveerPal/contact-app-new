@@ -1,0 +1,46 @@
+<%- include("header") -%>
+
+    <div class="container">
+        <h2 class="my-4 bg-primary text-white p-3 top-heading">Update Contact</h2>
+        <form action="/update-contact/<%= contact._id %>" method="POST">
+            <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" value="<%= contact.firstName %>" class="form-control" id="inputEmail3" name="firstName">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" value="<%= contact.lastName %>" class="form-control" id="inputPassword3" name="lastName">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" value="<%= contact.email %>"  class="form-control" id="inputPassword3" name="email">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Phone</label>
+                <div class="col-sm-10">
+                    <input type="number" value="<%= contact.phone %>" min="0" class="form-control" id="inputPassword3" name="phone">
+                </div> 
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="text" value="<%= contact.address %>" class="form-control" id="inputPassword3" name="address">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Contact</button>
+            <a href="/" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+
+
+    <%- include("footer") -%>

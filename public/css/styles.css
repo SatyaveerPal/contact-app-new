@@ -1,0 +1,9 @@
+
+
+body{padding-bottom: 60px;}
+.footer{position: fixed; bottom: 0px; left: 0px; right: 0px;}
+.top-heading{display: flex; justify-content: space-between;}
+table.table.table-striped tr td:last-child,
+table.table.table-striped tr th:last-child {
+    text-align: right;
+}

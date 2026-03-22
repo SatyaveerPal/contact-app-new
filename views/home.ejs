@@ -1,0 +1,42 @@
+<%- include("header") -%>  
+
+<div class="container">
+    <h2 class="my-4 bg-primary text-white p-3 top-heading">All Contact List <span><a class="btn btn-warning" href="/add-contact">Add Contact</a></span></h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% contacts.forEach((contact, index) => { %>
+                <tr>
+                    <th scope="row"><%= index + 1 %></th>
+                    <td><%= contact.firstName %></td>
+                    <td><%= contact.lastName %></td>
+                    <td><%= contact.email %></td>
+                    <td><%= contact.phone %></td>
+                    <td>
+                        <span><a href="/show-contact/<%= contact._id %>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a></span>
+                        <span><a href="/update-contact/<%= contact._id %>" class="btn btn-warning btn-sm"><i class="bi bi-eyedropper"></i></a></span>
+                        <span><a href="/delete-contact/<%= contact._id %>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a></span>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<%- include("footer") -%>
+
