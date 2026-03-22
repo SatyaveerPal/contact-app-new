@@ -10,7 +10,7 @@ table.table.table-striped tr th:last-child {
 
 
 @media (max-width:767px){
-table.table.table-striped tr th:first-child {
+table.table.table-striped tr th{
 display: none;
 }
 table.table.table-striped tr th:first-child {
