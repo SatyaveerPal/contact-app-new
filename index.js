@@ -54,7 +54,10 @@ app.post('/add-contact', async (req, res) => {
 
     // optional fields allow, but at least 1 field required
     if (!firstName && !lastName && !email && !phone && !address) {
-      return res.status(400).send("At least one field is required");
+      return res.status(400).send(`
+        <h2>Please fill at least one field</h2>
+        <a href='/add-contact'>Go Back</a>
+        `);
     }
 
     const newContact = new Contact({
