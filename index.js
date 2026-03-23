@@ -49,19 +49,31 @@ app.get('/add-contact', (req, res) => {
 });
 
 app.post('/add-contact', async (req, res) => {
-    // const newContact = await Contact({
-    //     firstName: req.body.firstName,
-    //     lastName: req.body.lastName,
-    //     email: req.body.email,
-    //     phone: req.body.phone,
-    //     address: req.body.address
-    // });
+  try {
+    const { firstName, lastName, email, phone, address } = req.body;
 
-// mongoose method if the name are same in in the form    
-    const newContact = await Contact.create(req.body)
-    newContact.save()
-        .then(() => res.redirect('/'))
-        .catch(err => console.error('Error saving contact:', err));
+    // optional fields allow, but at least 1 field required
+    if (!firstName && !lastName && !email && !phone && !address) {
+      return res.status(400).send("At least one field is required");
+    }
+
+    const newContact = new Contact({
+      firstName: firstName || "",
+      lastName: lastName || "",
+      email: email || "",
+      phone: phone || "",
+      address: address || ""
+    });
+
+    await newContact.save();
+
+    res.redirect('/');
+    
+  } catch (err) {
+    console.log("ERROR:", err.message);
+    res.status(500).send("Something went wrong");
+  }
+  return res.send("Please fill at least one field");
 });
 
 
